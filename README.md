@@ -1,11 +1,11 @@
 # Personal Agent Skills
 
-Wlasne, wersjonowane skille dla OpenCode i innych agentow obslugujacych format
-`SKILL.md`.
+Custom, version-controlled skills for OpenCode and other agents that support the
+`SKILL.md` format.
 
-## Struktura
+## Structure
 
-Kazdy skill znajduje sie w osobnym katalogu najwyzszego poziomu:
+Each skill lives in its own top-level directory:
 
 ```text
 .
@@ -18,57 +18,57 @@ Kazdy skill znajduje sie w osobnym katalogu najwyzszego poziomu:
     └── install.sh
 ```
 
-## Instalacja
+## Installation
 
-Wszystkie skille globalnie dla OpenCode:
+Install all skills globally for OpenCode:
 
 ```bash
 ./scripts/install.sh --global
 ```
 
-Tylko wybrane skille globalnie:
+Install selected skills globally:
 
 ```bash
 ./scripts/install.sh --global cloudflare-system-design
 ```
 
-Wszystkie skille w konkretnym projekcie:
+Install all skills in a specific project:
 
 ```bash
-./scripts/install.sh --project /sciezka/do/projektu
+./scripts/install.sh --project /path/to/project
 ```
 
-Skille sa kopiowane, a istniejace instalacje nie sa nadpisywane. Uzyj
-`--force`, aby je zaktualizowac:
+Skills are copied by default, and existing installations are not overwritten.
+Use `--force` to update them:
 
 ```bash
 ./scripts/install.sh --global --force cloudflare-system-design
 ```
 
-Podczas rozwijania skilla mozna zamiast kopii utworzyc dowiazanie symboliczne:
+While developing a skill, you can create a symbolic link instead of a copy:
 
 ```bash
 ./scripts/install.sh --global --link cloudflare-system-design
 ```
 
-Po instalacji uruchom OpenCode ponownie. Konfiguracja i skille nie sa
-przeladowywane w trakcie dzialajacej sesji.
+Restart OpenCode after installation. Configuration and skills are not reloaded
+during an active session.
 
-## Dodawanie skilla
+## Adding a Skill
 
-1. Utworz katalog, np. `database-design/`.
-2. Dodaj w nim plik `SKILL.md`.
-3. Ustaw `name` identyczne z nazwa katalogu.
-4. Opisz w `description`, co skill robi oraz kiedy nalezy go uruchomic.
-5. Zainstaluj go lokalnie i sprawdz na realistycznym zadaniu.
+1. Create a directory, such as `database-design/`.
+2. Add a `SKILL.md` file to it.
+3. Set `name` to match the directory name exactly.
+4. Use `description` to explain what the skill does and when it should run.
+5. Install it locally and test it with a realistic task.
 
-Pelne wskazowki i szablon znajduja sie w
+For complete guidelines and a template, see
 [`docs/creating-skills.md`](docs/creating-skills.md).
 
-## Publikacja
+## Publishing
 
-Repozytorium mozna umiescic na GitHubie jak zwykly projekt Git. Po utworzeniu
-pustego repozytorium na GitHubie:
+You can publish the repository on GitHub like any other Git project. After
+creating an empty GitHub repository, run:
 
 ```bash
 git remote add origin git@github.com:OWNER/REPOSITORY.git
@@ -76,6 +76,6 @@ git branch -M main
 git push -u origin main
 ```
 
-Uzytkownicy moga sklonowac repozytorium i skorzystac z instalatora. Format
-katalogow jest tez zgodny z ekosystemem Agent Skills i pozwala instalowac
-opublikowane skille narzedziami obslugujacymi repozytoria z `SKILL.md`.
+Users can clone the repository and run the installer. The directory layout is
+also compatible with the Agent Skills ecosystem, allowing published skills to
+be installed with tools that support repositories containing `SKILL.md` files.

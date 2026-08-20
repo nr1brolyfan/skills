@@ -1,67 +1,68 @@
-# Tworzenie skilli
+# Creating Skills
 
-## Minimalny format
+## Minimal Format
 
-Utworz `<nazwa>/SKILL.md`:
+Create `<name>/SKILL.md`:
 
 ```markdown
 ---
-name: nazwa-skilla
-description: Opisuje, co skill robi i kiedy nalezy go uzyc. Use when uzytkownik prosi o konkretne zadanie lub wymienia powiazane technologie.
+name: skill-name
+description: Explains what the skill does and when to use it. Use when the user requests a specific task or mentions related technologies.
 ---
 
-# Nazwa skilla
+# Skill Name
 
 ## Workflow
 
-1. Zbierz wymagania i ograniczenia.
-2. Wykonaj zadanie wedlug ponizszych zasad.
-3. Zweryfikuj wynik.
+1. Gather the requirements and constraints.
+2. Complete the task according to the rules below.
+3. Verify the result.
 
 ## Rules
 
-- Dodaj konkretne instrukcje dziedzinowe.
-- Zdefiniuj oczekiwany format odpowiedzi.
-- Wskaz sytuacje, w ktorych agent powinien zadac pytanie.
+- Add specific domain instructions.
+- Define the expected response format.
+- Identify situations in which the agent should ask a question.
 ```
 
-`name` musi:
+`name` must:
 
-- odpowiadac nazwie katalogu,
-- zawierac male litery, cyfry i myslniki,
-- miec maksymalnie 64 znaki.
+- match the directory name,
+- contain only lowercase letters, numbers, and hyphens,
+- be no more than 64 characters long.
 
-`description` odpowiada za wykrywanie skilla. Powinno zawierac slowa, ktorych
-uzytkownik faktycznie uzyje, i laczyc dwie informacje:
+`description` determines when the skill is discovered. It should include terms
+that users are likely to use and convey two things:
 
-- co skill potrafi,
-- kiedy powinien zostac uzyty.
+- what the skill can do,
+- when it should be used.
 
-## Zasady pisania
+## Writing Guidelines
 
-- Pisz instrukcje operacyjne, a nie ogolny artykul o danej dziedzinie.
-- Dodaj kolejnosc dzialan, reguly decyzyjne i kryteria weryfikacji.
-- Nie powtarzaj wiedzy, ktora model zwykle posiada, jesli nie zmienia ona jego
-  decyzji.
-- Okresl format rezultatu, gdy spojnosc odpowiedzi jest istotna.
-- Dodaj przyklady tylko wtedy, gdy usuwaja niejednoznacznosc.
-- Nie lacz kilku niezaleznych dziedzin w jednym skillu.
-- Dla waskiego skilla zacznij opis od `Use ONLY when...`, aby ograniczyc
-  przypadkowe uruchamianie.
+- Write operational instructions rather than a general article about the
+  domain.
+- Include a sequence of actions, decision rules, and verification criteria.
+- Do not repeat knowledge the model is likely to have unless it affects its
+  decisions.
+- Specify the output format when consistency matters.
+- Add examples only when they resolve ambiguity.
+- Do not combine several unrelated domains in one skill.
+- For a narrowly scoped skill, begin the description with `Use ONLY when...`
+  to prevent accidental activation.
 
-## Testowanie
+## Testing
 
-Dobry zestaw recznych testow zawiera:
+A good set of manual tests includes:
 
-1. Polecenie, ktore bezsprzecznie powinno uruchomic skill.
-2. Polecenie podobne, ale znajdujace sie poza jego zakresem.
-3. Niepelne wymagania, przy ktorych agent powinien zadac pytania.
-4. Zadanie wymagajace zastosowania najwazniejszej reguly skilla.
+1. A prompt that should clearly activate the skill.
+2. A similar prompt that falls outside its scope.
+3. Incomplete requirements that should cause the agent to ask questions.
+4. A task that requires applying the skill's most important rule.
 
-Po kazdej zmianie zainstaluj skill z `--force` albo korzystaj z `--link`, a
-nastepnie uruchom nowa sesje OpenCode.
+After each change, install the skill with `--force` or use `--link`, then start
+a new OpenCode session.
 
-## Kolejne dobre kandydatury
+## Other Good Candidates
 
 - `database-design`
 - `code-review`
@@ -70,4 +71,4 @@ nastepnie uruchom nowa sesje OpenCode.
 - `system-design`
 - `technical-writing`
 
-Kazdy z nich powinien miec waski zakres i wlasne kryteria jakosci.
+Each one should have a narrow scope and its own quality criteria.
